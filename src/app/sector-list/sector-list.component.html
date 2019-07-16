@@ -1,0 +1,20 @@
+<h2>Setores</h2>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let sector of sectors">
+			<td>{{sector._id}}</td>
+			<td>{{sector.name}}</td>
+			<td>
+				<button type="submit" (click)="edit_sector(sector)" class="btn btn-success">Editar</button> &nbsp;
+				<button type="submit" (click)="delete_sector(sector._id)" class="btn btn-success">Deletar</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

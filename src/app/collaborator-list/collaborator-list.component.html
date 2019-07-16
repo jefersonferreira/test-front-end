@@ -1,6 +1,32 @@
-<h2>Listagem</h2>
-<ul>
-  <li *ngFor="let collaborator of collaborators">
-    {{collaborator.full_name}}
-  </li>
-</ul>
+<h2>Colaboradores</h2>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Setor</th>
+			<th>Nome</th>
+			<th>Data Nascimento</th>
+			<th>Salário</th>
+			<th>Criado</th>
+			<th>Modificado</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let collaborator of collaborators">
+			<td>{{collaborator._id}}</td>
+			<td>{{collaborator.Sector}}</td>
+			<td>{{collaborator.full_name}}</td>
+			<td>{{collaborator.birth_date}}</td>
+			<td>{{collaborator.salary}}</td>
+			<td>{{collaborator.created_at}}</td>
+			<td>{{collaborator.updated_at}}</td>
+			<td>{{collaborator.status}}</td>
+			<td>
+				<button type="submit" (click)="edit_collaborator(collaborator)" class="btn btn-success">Editar</button> &nbsp;
+				<button type="submit" (click)="delete_collaborator(collaborator._id)" class="btn btn-success">Deletar</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

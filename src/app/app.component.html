@@ -1,4 +1,52 @@
-<h1>Colaboradores</h1>
-<hr>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-1">
+			<h3>Teste</h3>
+			<hr>
+			<button class="btn btn-default" (click)="list_collaborator()">Listar Colaboradores</button>
+			<hr>
+			<button class="btn btn-default" (click)="add_collaborator()">Add Colaborador</button>
+			<hr>
+			<button class="btn btn-default" (click)="list_sector()">Listar Setores</button>
+			<hr>
+			<button class="btn btn-default" (click)="add_sector()">Add Setor</button>
+		</div>
+		<div class="col-md-11">
+			<h3>Dados</h3>
+			<hr>
+			<app-collaborator-list *ngIf="collaborator_list"></app-collaborator-list>
+			<app-sector-list *ngIf="sector_list"></app-sector-list>
+			<div *ngIf="form_collaborator">
+				<form>
+					<div class="form-group">
+						<label for="sector">Setor</label>
+						<input type="text"  class="form-control" id="sector" [(ngModel)]="sector" name="sector">
 
-<app-collaborator-list>
+						<label for="name">Nome Completo</label>
+						<input type="text"  class="form-control" id="full_name" [(ngModel)]="full_name" name="full_name">
+
+						<label for="name">Data de Nascimento</label>
+						<input type="date"  class="form-control" id="birth_date" [(ngModel)]="birth_date" name="birth_date">
+
+						<label for="salary">Salário</label>
+						<input type="number"  class="form-control" id="salary" [(ngModel)]="salary" name="salary">
+					</div>
+
+					<button type="submit" (click)="save_collaborator()" class="btn btn-success">Salvar</button>
+
+				</form>
+			</div>
+			<div *ngIf="form_sector">
+				<form>
+					<div class="form-group">
+						<label for="name">Nome Setor</label>
+						<input type="text"  class="form-control" id="name" [(ngModel)]="sector" name="name">
+					</div>
+
+					<button type="submit" (click)="save_sector()" class="btn btn-success">Salvar</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
